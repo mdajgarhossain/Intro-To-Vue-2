@@ -1,17 +1,21 @@
 new Vue({
   el: "#app",
   data: {
-    name: "VUE",
-    job: "Front-end framework",
-    website: "https://vuejs.org/v2/guide/",
-    websiteTag: '<a href="https://vuejs.org/v2/guide/">vueJS</a>',
+    age: 5,
+    x: 0,
+    y: 0,
   },
   methods: {
-    greet() {
-      return "Good Morning";
+    add(inc) {
+      this.age += inc;
     },
-    greet2(time) {
-      return `Good ${time} ${this.name}`;
+    subtract(dec) {
+      this.age -= dec;
+    },
+    updateXY(event) {
+      console.log(event);
+      this.x = event.offsetX;
+      this.y = event.offsetY;
     },
   },
 });
