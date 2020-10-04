@@ -9,28 +9,12 @@
   </head>
   <body>
     <div id="app">
-      <h1>Events</h1>
-      <!--click event with data-->
-      <button v-on:click.once="age++">Add a year</button>
-      <button v-on:click="age--">Subtract a year</button>
-      <h4>My age is {{age}}</h4>
-      <hr />
-      <!--click event with methods-->
-      <button v-on:click="add(1)">Add a year</button>
-      <button v-on:click="subtract(1)">Subtract a year</button>
-      <h4>My age is {{age}}</h4>
-      <hr />
-      <!--double click event-->
-      <button v-on:dblclick="add(10)">Add a year</button>
-      <button v-on:dblclick="subtract(10)">Subtract a year</button>
-      <h4>My age is {{age}}</h4>
-      <!-- v-on: directive shorthand-->
-      <div id="canvas" @mousemove="updateXY">{{x}}, {{y}}</div>
-
-      <!--event modifiers-->
-      <a v-on:click.prevent="click" href="https://vuejs.org/v2/guide/"
-        >VueJS Official Website</a
-      >
+      <h1>Keyboard Events</h1>
+      <label>Name:</label>
+      <input type="text" v-on:keyup.enter="logName" />
+      <label>Age:</label>
+      <!--multiple modifiers together-->
+      <input type="text" v-on:keyup.alt.enter="logAge" />
     </div>
 
     <script src="app.js"></script>
