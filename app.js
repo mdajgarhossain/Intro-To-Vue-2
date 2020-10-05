@@ -1,16 +1,28 @@
 new Vue({
   el: "#app",
   data: {
-    name: "",
-    age: "",
+    age: 18,
+    a: 0,
+    b: 0,
   },
   methods: {
-    logName(event) {
-      console.log(event.target.value);
-      this.name = event.target.value;
+    // addToA() {
+    //   console.log("addToA");
+    //   return this.a + this.age;
+    // },
+    // addToB() {
+    //   console.log("addToB");
+    //   return this.b + this.age;
+    // },
+  },
+  computed: {
+    addToA() {
+      console.log("addToA");
+      return this.a + this.age;
     },
-    logAge() {
-      console.log("you entered your age");
+    addToB() {
+      console.log("addToB");
+      return this.b + this.age;
     },
   },
 });
