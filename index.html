@@ -9,13 +9,39 @@
   </head>
   <body>
     <div id="app">
-      <h1>Conditionals</h1>
-      <button v-on:click="error = !error">Toggle Error</button>
-      <button v-on:click="success = !success">Toggle Success</button>
-      <!-- <p v-if="error">There has been an error</p>
-      <p v-else-if="success">Success :)</p> -->
-      <p v-show="error">There has been an error</p>
-      <p v-show="success">Success :)</p>
+      <h1>Looping through lists</h1>
+      <!-- {{characters[0]}} {{characters[1]}} -->
+      <!--Looping through an array-->
+      <ul>
+        <li v-for="character in characters">{{character}}</li>
+      </ul>
+      <!--Looping through an array of objects-->
+      <ul>
+        <li v-for="user in users">Name: {{user.name}}, Age: {{user.age}}</li>
+      </ul>
+      <!--Show elements with index-->
+      <ul>
+        <li v-for="(user, index) in users">
+          {{index}}. Name: {{user.name}}, Age: {{user.age}}
+        </li>
+      </ul>
+      <!--Looping through using div-->
+      <div v-for="(user, index) in users">
+        <h3>{{index}}. {{user.name}}</h3>
+        <p>{{user.age}}</p>
+      </div>
+      <hr />
+      <!--Looping through using template-->
+      <template v-for="(user, index) in users">
+        <h3>{{index}}. {{user.name}}</h3>
+        <p>{{user.age}}</p>
+      </template>
+      <!--Looping through into object-->
+      <template v-for="user in users">
+        <div v-for="(value, key) in user">
+          <p>{{key}} - {{value}}</p>
+        </div>
+      </template>
     </div>
 
     <script src="app.js"></script>
