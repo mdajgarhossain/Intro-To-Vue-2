@@ -1,35 +1,14 @@
-var data = {
-  name: "Javascript",
-};
-
-Vue.component("greeting", {
-  template:
-    "<p>Hey there, I am {{name}}. <button v-on:click='changeName'>Change name</button></p>",
-  //data as a function for creating individual data object(reference) for every instance
-  /*data() {
-    return {
-      name: "Javascript",
-    };
-  },*/
-  //updating all instances data together by passing above global 'data' variable
-  data() {
-    return data;
+new Vue({
+  el: "#vue-app",
+  data: {
+    output1: "",
+    output2: "",
   },
   methods: {
-    changeName() {
-      this.name = "vueJS";
+    readRefs() {
+      console.log(this.$refs);
+      this.output1 = this.$refs.input1.value;
+      this.output2 = this.$refs.input2.value;
     },
   },
-});
-
-//First instance stored in variable one
-var one = new Vue({
-  el: "#vue-app-one",
-  data: {},
-});
-
-//Second instance stored in variable two
-var two = new Vue({
-  el: "#vue-app-two",
-  data: {},
 });
