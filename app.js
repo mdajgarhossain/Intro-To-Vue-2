@@ -1,19 +1,35 @@
-new Vue({
-  el: "#app",
+//First instance stored in variable one
+var one = new Vue({
+  el: "#vue-app-one",
   data: {
-    health: 100,
-    ended: false,
+    title: "Vue App One",
+  },
+  methods: {},
+  computed: {
+    greet() {
+      return "Hello from app one!";
+    },
+  },
+});
+
+//Second instance stored in variable two
+var two = new Vue({
+  el: "#vue-app-two",
+  data: {
+    title: "Vue App Two",
   },
   methods: {
-    punch() {
-      this.health -= 10;
-      if (this.health <= 0) {
-        this.ended = true;
-      }
+    //interaction between both instances
+    changeTitle() {
+      one.title = "Title has changed from app two";
     },
-    restart() {
-      this.health = 100;
-      this.ended = false;
+  },
+  computed: {
+    greet() {
+      return "Hello from app two!";
+    },
+    seeChange() {
+      return one.title;
     },
   },
 });
