@@ -1,12 +1,19 @@
 new Vue({
   el: "#app",
   data: {
-    characters: ["Rahim", "Karim", "Salam", "Jabbar"],
-    users: [
-      { name: "Rahim", age: 20 },
-      { name: "Karim", age: 21 },
-      { name: "Salam", age: 22 },
-    ],
+    health: 100,
+    ended: false,
   },
-  methods: {},
+  methods: {
+    punch() {
+      this.health -= 10;
+      if (this.health <= 0) {
+        this.ended = true;
+      }
+    },
+    restart() {
+      this.health = 100;
+      this.ended = false;
+    },
+  },
 });
